@@ -7,6 +7,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <h1>Aca deberia estar Header</h1>
+                {/* <Header /> */}
             </div>
         )
     }
