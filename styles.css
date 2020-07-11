@@ -1,0 +1,189 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ---------------------------------------------- HEADER ---------------------------------------------- */
+
+header {
+    /* padding: 40px; */
+    background-color: rgb(93, 189, 157);
+}
+
+.contenidoHeader {
+
+}
+
+.titulo-fecha {
+    width: 100%;
+    margin-left: 5%;
+    padding: 40px 0 20px 0;
+    margin-bottom: 1.5%;
+}
+
+.header-titulo {
+    color: #fff;
+}
+
+.info-header {
+    color: #fff;
+}
+
+.inputs-hoteles {
+    background-color: aquamarine;
+    width: 100%;
+    padding: 20px 0 20px 0;
+}
+
+.contenido-inputs {
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+}
+
+.inputDeLaFecha {
+    display: flex;
+    align-items: center;
+    margin-right: 2.5%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.contenedorTagInput {
+    display: flex;
+    align-items: center;
+    margin-right: 2.5%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.tag {
+    color: #ccc;
+    margin: 0 5%;
+}
+
+.input {
+    margin-right: 6%;
+    border: 0;
+    padding: 20px 20px;
+    border-left: 1px solid #ccc;
+}
+
+.input-select {
+    /* padding: 20px; */
+}
+
+.input-fecha {
+
+}
+
+
+/* ---------------------------------------------- MAINVIEW ---------------------------------------------- */
+
+.mainView {
+    background-color: #f2f2f2;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.todasLasTarjetas {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tarjeta {
+    width: 30%;
+    border: 3px solid #585858;
+
+}
+
+.imagenHotel {
+    width: 100%;
+}
+
+.info {
+    padding: 5%;
+}
+
+.titulo-hotel {
+    font-weight: bold;
+}
+
+.descripcion-hotel {
+    font-size: 18px;
+    padding-right: 30px;
+    margin: 10px 0;
+    line-height: 140%;
+    text-align: justify;
+}
+
+/* .lugar-hab-precio {
+
+} */
+
+.bg-pais {
+    background-color: #cccccc;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 3%;
+}
+
+.pais {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.habitaciones-precio {
+    display: flex;
+}
+
+.bg-habitaciones {
+    background-color:#cccccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.habitaciones {
+    font-weight: bold;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.bg-precio {
+    background-color:#ccc;
+    display: inline-block;
+}
+
+.precio {
+    font-weight: bold;
+}
+
+.tagCaja {
+    background-color: rgb(61, 129, 255);
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.tagMain {
+    color: #fff;
+}
+
+.btn-reserva {
+    width: 100%;
+    background-color: rgb(93, 189, 157);
+    color: #fff;
+    padding: 20px;
+    font-size: 1.3rem;
+    border: 0;
+}
+
+.btn-reserva:hover {
+    cursor: pointer;
+}
