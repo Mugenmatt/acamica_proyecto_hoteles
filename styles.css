@@ -92,12 +92,13 @@ header {
     margin: auto;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .tarjeta {
     width: 30%;
     border: 3px solid #585858;
-
+    margin-bottom: 5%;
 }
 
 .imagenHotel {
