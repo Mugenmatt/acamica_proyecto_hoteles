@@ -4,20 +4,26 @@
     box-sizing: border-box;
 }
 
+body {
+    font-size: 16px;
+    margin: 0;
+}
+
+
 /* ---------------------------------------------- HEADER ---------------------------------------------- */
 
 header {
     /* padding: 40px; */
     background-color: rgb(93, 189, 157);
+    /* overflow: hidden; */
 }
 
 .contenidoHeader {
-
+    margin-left: 5%;
 }
 
 .titulo-fecha {
     width: 100%;
-    margin-left: 5%;
     padding: 40px 0 20px 0;
     margin-bottom: 1.5%;
 }
@@ -63,6 +69,7 @@ header {
 .tag {
     color: #ccc;
     margin: 0 5%;
+    font-size: 1rem;
 }
 
 .input {
@@ -86,6 +93,7 @@ header {
 .mainView {
     background-color: #f2f2f2;
     padding-top: 5%;
+    
 }
 
 .todasLasTarjetas {
@@ -98,7 +106,7 @@ header {
 
 .tarjeta {
     width: 30%;
-    border: 3px solid #585858;
+    border: 2px solid #585858;
     margin-bottom: 5%;
 }
 
