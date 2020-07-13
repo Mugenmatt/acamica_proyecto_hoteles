@@ -24,9 +24,11 @@ header {
 
 .header-titulo {
     color: #fff;
+    font-size: 3rem;
 }
 
 .info-header {
+    font-size: 1.5rem;
     color: #fff;
 }
 
@@ -84,7 +86,6 @@ header {
 .mainView {
     background-color: #f2f2f2;
     padding-top: 5%;
-    padding-bottom: 5%;
 }
 
 .todasLasTarjetas {
@@ -276,6 +277,26 @@ header {
 }
 
 @media(max-width:375px) {
+
+    .titulo-fecha {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+        margin-bottom: 1.5%;
+    }
+
+    .header-titulo {
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .info-header {
+        text-align: center;
+        margin: auto;
+        font-size: 1.4rem;
+        width: 80%;
+    }
+
     .tarjeta {
         width: 98%;
     }

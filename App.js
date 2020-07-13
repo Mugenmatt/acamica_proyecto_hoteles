@@ -15,7 +15,7 @@ class App extends React.Component {
 
         <main className="mainView">
 
-            <MainView />
+        <MainView />
 
         </main>
         </React.Fragment>
