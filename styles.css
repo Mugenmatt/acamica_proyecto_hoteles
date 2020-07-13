@@ -188,3 +188,95 @@ header {
 .btn-reserva:hover {
     cursor: pointer;
 }
+
+
+/* --------------------------------------- MEDIAQUERIES --------------------------------------- */
+
+@media(max-width:1140px) {
+
+    .titulo-hotel {
+        text-align: center;
+    }
+
+    .descripcion-hotel {
+        text-align: center;
+        padding: 0;
+        margin-bottom: 10%;
+    }
+
+    .bg-pais {
+        display: flex;
+        align-items: center;
+    }
+
+    .pais {
+        font-size: 1rem;
+        
+    }
+
+    .habitaciones {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .tagCaja {
+        padding: 10px;
+    }
+
+}
+
+@media(max-width:900px) {
+
+    .titulo-fecha {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+        margin-bottom: 1.5%;
+    }
+
+    .header-titulo {
+        text-align: center;
+        font-size: 4rem;
+    }
+
+    .info-header {
+        text-align: center;
+        font-size: 2rem;
+        width: 100%;
+    }
+
+    /* FILTROS  */
+
+    .contenido-inputs {
+        flex-direction: column;
+    }
+
+    .inputDeLaFecha, .contenedorTagInput {
+        width: 80%;
+        margin: 1% auto 2% auto;
+    }
+
+    .input {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    /* TARJETAS */
+
+    .tarjeta {
+        width: 47%;
+    }
+
+}
+
+@media(max-width:640px) {
+    .tarjeta {
+        width: 90%;
+    }
+}
+
+@media(max-width:375px) {
+    .tarjeta {
+        width: 98%;
+    }
+}

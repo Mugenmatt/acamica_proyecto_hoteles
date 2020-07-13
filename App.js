@@ -1,6 +1,3 @@
-// import React from "react";
-// import "./styles.css";
-// import Contador from './components/Contador' ;
 
 class App extends React.Component {
     render() {
@@ -17,7 +14,7 @@ class App extends React.Component {
         </header>
 
         <main className="mainView">
-            
+
             <MainView />
 
         </main>
