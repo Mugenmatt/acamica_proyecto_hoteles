@@ -19,17 +19,17 @@ const Filtros = (props) => {
         return(
             <div className="inputs-hoteles">
             <div className="contenido-inputs">
-                <div className="inputDeLaFecha">
+                <div className="inputDeLaFecha inputDiv">
                     <i className="fas fa-sign-in-alt tag flecha"></i>
                     <input className="input input-fecha" type="date" name="desde" id="desde" onChange={onChangeDesde} />
                 </div>
 
-                <div className="inputDeLaFecha">
+                <div className="inputDeLaFecha inputDiv">
                     <i className="fas fa-sign-in-alt tag flecha"></i>
                     <input className="input input-fecha" type="date" name="hasta" id="hasta"  />
                 </div>
 
-                <div className="contenedorTagInput">
+                <div className="contenedorTagInput inputDiv">
                     <i className="fas fa-globe tag"></i>
                     <select className="input input-select mundo" name="paises" id="" onChange={onChangePais} >
                         <option value="">Todos los Paises</option>
@@ -40,7 +40,7 @@ const Filtros = (props) => {
                     </select>
                 </div>
 
-                <div className="contenedorTagInput">
+                <div className="contenedorTagInput inputDiv">
                     <i className="fas fa-dollar-sign tag dolar"></i>
                     <select className="input input-select" name="" id="" onChange={onChangeDolar} >
                         <option value="">Cualquier Precio</option>

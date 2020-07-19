@@ -51,15 +51,15 @@ header {
 .inputDeLaFecha {
     display: flex;
     align-items: center;
-    margin-right: 2.5%;
+    /* margin-right: 2.5%; */
     background-color: #fff;
     border-radius: 10px;
+    height: 100%;
 }
 
 .contenedorTagInput {
     display: flex;
     align-items: center;
-    margin-right: 2.5%;
     background-color: #fff;
     border-radius: 10px;
 }
@@ -68,21 +68,36 @@ header {
     color: #ccc;
     margin: 0 5%;
     font-size: 1rem;
+    border-right: 1px solid #ccc;
+    padding: 30px 30px 30px 10px;
+}
+
+.inputDiv {
+    margin-right: 2.5%;
 }
 
 .input {
     margin-right: 6%;
     border: 0;
     padding: 20px 20px;
-    border-left: 1px solid #ccc;
 }
+
+
 
 .input-select {
     font-size: 1rem;
+    background: transparent;
+    font-size: 14px;
+    padding: 5px;
+    width: 200px;
+    text-align: center;
 }
 
 .input-fecha {
     font-size: 1rem;
+    background: transparent;
+    width: 250px;
+    text-align: center;
 }
 
 
