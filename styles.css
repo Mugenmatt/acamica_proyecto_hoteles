@@ -80,11 +80,11 @@ header {
 }
 
 .input-select {
-    /* padding: 20px; */
+    font-size: 1rem;
 }
 
 .input-fecha {
-
+    font-size: 1rem;
 }
 
 
@@ -108,6 +108,7 @@ header {
     width: 30%;
     border: 2px solid #585858;
     margin-bottom: 5%;
+    height: 100%;
 }
 
 .imagenHotel {
@@ -177,8 +178,14 @@ header {
 
 .tagCaja {
     background-color: rgb(61, 129, 255);
+    color: white;
     padding: 10px 15px;
     display: inline-block;
+}
+
+.colorNo {
+    color: #f2f2f2;
+    opacity: 0.2;
 }
 
 .tagMain {
