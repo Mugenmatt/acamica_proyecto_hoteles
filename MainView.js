@@ -1,52 +1,64 @@
 const MainView = (props) => {
 
-    const {filtradoPais, filtradoDolar, filtradoCamas} = props
+    const {filteredByCountry, filteredByDolar, filteredByBed, filteredByFrom, filteredByTo} = props
 
-    const funcionPais = filtradoPais == '' ? hotelsData : hotelsData.filter(hotel => {
-    return hotel.country == props.filtradoPais
+    const countrySelection = filteredByCountry == '' ? hotelsData : hotelsData.filter(hotel => {
+    return hotel.country == props.filteredByCountry
     })
-    // console.log(funcionPais);
-    // console.log(props.filtradoPais == '');
 
-
-    const funcionDolar = filtradoDolar == '' ? funcionPais : funcionPais.filter(hotel => {
-        return hotel.price == Number(props.filtradoDolar)
+    const DolarSelection = filteredByDolar == '' ? countrySelection : countrySelection.filter(hotel => {
+        return hotel.price == Number(props.filteredByDolar)
         })
-        // console.log(props.funcionDolar == 1);
-        // console.log(typeof props.filtradoDolar );
 
+    const SizeSelection = filteredByBed == '' ? DolarSelection : DolarSelection.filter(hotel => {
 
-    const funcionCamas = filtradoCamas == '' ? funcionDolar : funcionDolar.filter(hotel => {
-
-        if(filtradoCamas == 'pequenio') {
+        if(filteredByBed == 'small') {
             return hotel.rooms <= 10
-        } else if(filtradoCamas == 'mediano') {
+        } else if(filteredByBed == 'medium') {
             return hotel.rooms > 10 && hotel.rooms <= 20
         } else {
             return hotel.rooms > 20
         }
     })
 
-        return(
-            
-            <div className="todasLasTarjetas">
-                <React.Fragment>
+    const fromSelection = filteredByFrom == '' ? SizeSelection : SizeSelection.filter(hotel => {
+
+        let hotelDateMilisecondsFrom = moment(hotel.availabilityFrom);
+
+        let requestedDateMilisecondsFrom = moment(props.filteredByFrom)
+
+        if( hotelDateMilisecondsFrom >= requestedDateMilisecondsFrom ) {
+            return hotel.availabilityFrom;
+        }
+
+    })
+
+    const toSelection = filteredByTo == '' ? fromSelection : fromSelection.filter(hotel => {
+
+        let hotelDateMilisecondsTo = moment(hotel.availabilityTo);
+
+        let requestedDateMilisecondsTo = moment(props.filteredByTo)
+
+        if( hotelDateMilisecondsTo >= requestedDateMilisecondsTo ) {
+            return hotel.availabilityTo;
+        }
+
+    })
+
+        return(<div className="allCards">
                 
-                {funcionCamas.map(hotel => {
+                {toSelection.map(hotel => {
                     return <Hotel 
                         city={hotel.city} 
                         country={hotel.country} 
                         description={hotel.description} 
-                        name={hotel.name} 
+                        name={hotel.name}
                         photo={hotel.photo} 
                         price={hotel.price}
                         rooms={hotel.rooms} 
                         key={hotel.slug}
                     />;
                 })}
-                    
-                    
-                </React.Fragment>
                 
             </div>
 

@@ -8,32 +8,32 @@ const Hotel = ( { name, photo, description, rooms, city, country, price } ) => {
     })
 
     return(
-        <div className="tarjeta">
-            <img className="imagenHotel" src={photo} alt="Imagen del hotel" />
+        <div className="card">
+            <img className="hotelImage" src={photo} alt="Imagen del hotel" />
             <div className="info">
-                <h1 className="titulo-hotel">{name}</h1>
-                <p className="descripcion-hotel">{description}</p>
-                <div className="lugar-hab-precio">
-                    <div className="bg-pais">
-                        <div className="tagCaja">
+                <h1 className="hotelTitle">{name}</h1>
+                <p className="hotelDescription">{description}</p>
+                <div className="placeBedPrice">
+                    <div className="countryBg">
+                        <div className="tagBox">
                             <i className="fas fa-map-marker tagMain"></i>
                         </div>
-                            <p className="pais">{ciudadMasPais}</p>
+                            <p className="country">{ciudadMasPais}</p>
                     </div>
-                    <div className="habitaciones-precio">
-                        <div className="bg-habitaciones">
-                            <div className="tagCaja">
+                    <div className="bedAndPrice">
+                        <div className="bedsBg">
+                            <div className="tagBox">
                                 <i className="fas fa-bed tagMain"></i>
                             </div>
-                            <p className="habitaciones">{rooms}</p>
+                            <p className="beds">{rooms}</p>
                         </div>
-                        <div className="bg-precio">
-                            <div className="tagCaja">{cantidadDolar}</div>
+                        <div className="bgPrecio">
+                            <div className="tagBox">{cantidadDolar}</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <input className="btn-reserva" type="submit" value="Reservar" name="reserva" />
+            <input className="reservationBtn" type="submit" value="Reservar" name="reserva" />
         </div>
     )
 }

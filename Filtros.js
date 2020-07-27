@@ -1,37 +1,24 @@
 
 const Filtros = (props) => {
 
-// PARA TENER EN CUENTA
-//   handleIncrement = () => {
-//     this.setState(prevState => {
-//         console.log(prevState.target.value);
-//         return { count: prevState.count + 1 };
-//     });
-//   };
-
-// ARREGLAR FECHA 
-// const dateFrom = new Date(e.target.value + "T00:00");
-
-        const {onChangeDesde, onChangePais, onChangeDolar, onChangeCamas} = props
-
-        const semana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+        const { onChangeCountry, onChangeDolar, onChangeBed, onChangeFrom, onChangeTo } = props
 
         return(
-            <div className="inputs-hoteles">
-            <div className="contenido-inputs">
-                <div className="inputDeLaFecha inputDiv">
-                    <i className="fas fa-sign-in-alt tag flecha"></i>
-                    <input className="input input-fecha" type="date" name="desde" id="desde" onChange={onChangeDesde} />
+            <div className="inputsHotels">
+            <div className="inputsContent">
+                <div className="inputOfDate inputDiv">
+                    <i className="fas fa-sign-in-alt tag" ></i>
+                    <input className="input dateInput" type="date" onChange={onChangeFrom} />
                 </div>
 
-                <div className="inputDeLaFecha inputDiv">
-                    <i className="fas fa-sign-in-alt tag flecha"></i>
-                    <input className="input input-fecha" type="date" name="hasta" id="hasta"  />
+                <div className="inputOfDate inputDiv">
+                    <i className="fas fa-sign-in-alt tag"></i>
+                    <input className="input dateInput" type="date" onChange={onChangeTo} />
                 </div>
 
-                <div className="contenedorTagInput inputDiv">
+                <div className="tagInputContent inputDiv">
                     <i className="fas fa-globe tag"></i>
-                    <select className="input input-select mundo" name="paises" id="" onChange={onChangePais} >
+                    <select className="input inputSelect mundo" onChange={onChangeCountry} >
                         <option value="">Todos los Paises</option>
                         <option value="Argentina">Argentina</option>
                         <option value="Chile">Chile</option>
@@ -40,9 +27,9 @@ const Filtros = (props) => {
                     </select>
                 </div>
 
-                <div className="contenedorTagInput inputDiv">
+                <div className="tagInputContent inputDiv">
                     <i className="fas fa-dollar-sign tag dolar"></i>
-                    <select className="input input-select" name="" id="" onChange={onChangeDolar} >
+                    <select className="input inputSelect" onChange={onChangeDolar} >
                         <option value="">Cualquier Precio</option>
                         <option value="1">$</option>
                         <option value="2">$$</option>
@@ -51,13 +38,13 @@ const Filtros = (props) => {
                     </select>
                 </div>
 
-                <div className="contenedorTagInput">
+                <div className="tagInputContent">
                     <i className="fas fa-bed tag"></i>
-                    <select className="input input-select cama" name="tamanio" id="" onChange={onChangeCamas} >
+                    <select className="input inputSelect cama" onChange={onChangeBed} >
                         <option value="">Cualquier Tamaño</option>
-                        <option value="pequenio">Hotel Pequeño</option>
-                        <option value="mediano">Hotel Mediano</option>
-                        <option value="grande">Hotel Grande</option>
+                        <option value="small">Hotel Pequeño</option>
+                        <option value="medium">Hotel Mediano</option>
+                        <option value="large">Hotel Grande</option>
                     </select>
                 </div>
             </div>

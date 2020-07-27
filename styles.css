@@ -16,48 +16,62 @@ header {
     background-color: rgb(93, 189, 157);
 }
 
-.contenidoHeader {
+.headerContent {
     margin-left: 5%;
 }
 
-.titulo-fecha {
+.dateTitle {
     width: 100%;
     padding: 40px 0 20px 0;
     margin-bottom: 1.5%;
 }
 
-.header-titulo {
+.headerTitle {
     color: #fff;
     font-size: 3rem;
 }
 
-.info-header {
+.infoHeader {
     font-size: 1.5rem;
     color: #fff;
 }
 
-.inputs-hoteles {
+.boldDate {
+    font-weight: bold;
+    margin: 0 0.4%;
+}
+
+.notBoldDate {
+
+    font-weight: 400;
+
+}
+
+
+/* ---------------------------------------------- FILTROS ---------------------------------------------- */
+
+.inputsHotels {
     background-color: aquamarine;
     width: 100%;
     padding: 20px 0 20px 0;
 }
 
-.contenido-inputs {
+.inputsContent {
     margin-left: 5%;
     display: flex;
     flex-direction: row;
 }
 
-.inputDeLaFecha {
+.inputOfDate {
     display: flex;
     align-items: center;
-    /* margin-right: 2.5%; */
     background-color: #fff;
     border-radius: 10px;
-    height: 100%;
+    padding: 0 0.4%;
+    /* height: 100%; */
 }
 
-.contenedorTagInput {
+.tagInputContent {
     display: flex;
     align-items: center;
     background-color: #fff;
@@ -69,36 +83,56 @@ header {
     margin: 0 5%;
     font-size: 1rem;
     border-right: 1px solid #ccc;
-    padding: 30px 30px 30px 10px;
+    padding: 20px 20px 20px 10px;
 }
 
 .inputDiv {
     margin-right: 2.5%;
 }
 
+[type="date"] {
+    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
 .input {
-    margin-right: 6%;
-    border: 0;
-    padding: 20px 20px;
+    /* margin-right: 6%; */
+    /* border: 0; */
+    /* padding: 20px 20px; */
+
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 3px 5px;
+    width: 190px;
 }
 
 
 
-.input-select {
+/* .inputSelect {
     font-size: 1rem;
     background: transparent;
     font-size: 14px;
     padding: 5px;
     width: 200px;
     text-align: center;
-}
+    box-sizing: border-box;
+    width: 250px;
+} */
 
-.input-fecha {
+/* .dateInput {
     font-size: 1rem;
     background: transparent;
     width: 250px;
     text-align: center;
-}
+    box-sizing: border-box;
+    width: 250px;
+} */
 
 
 /* ---------------------------------------------- MAINVIEW ---------------------------------------------- */
@@ -106,10 +140,9 @@ header {
 .mainView {
     background-color: #f2f2f2;
     padding-top: 5%;
-    height: 70vh;
 }
 
-.todasLasTarjetas {
+.allCards {
     width: 90%;
     margin: auto;
     display: flex;
@@ -117,14 +150,16 @@ header {
     flex-wrap: wrap;
 }
 
-.tarjeta {
+/* ---------------------------------------------- CARD ---------------------------------------------- */
+
+.card {
     width: 30%;
     border: 2px solid #585858;
     margin-bottom: 5%;
     height: 100%;
 }
 
-.imagenHotel {
+.hotelImage {
     width: 100%;
 }
 
@@ -132,11 +167,11 @@ header {
     padding: 5%;
 }
 
-.titulo-hotel {
+.hotelTitle {
     font-weight: bold;
 }
 
-.descripcion-hotel {
+.hotelDescription {
     font-size: 18px;
     padding-right: 30px;
     margin: 10px 0;
@@ -144,18 +179,14 @@ header {
     text-align: justify;
 }
 
-/* .lugar-hab-precio {
-
-} */
-
-.bg-pais {
+.countryBg {
     background-color: #cccccc;
     border-radius: 5px;
     display: inline-block;
     margin-bottom: 3%;
 }
 
-.pais {
+.country {
     display: inline-block;
     font-size: 18px;
     font-weight: bold;
@@ -163,33 +194,33 @@ header {
     margin-left: 15px;
 }
 
-.habitaciones-precio {
+.bedAndPrice {
     display: flex;
 }
 
-.bg-habitaciones {
+.bedsBg {
     background-color:#cccccc;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.habitaciones {
+.beds {
     font-weight: bold;
     margin-right: 15px;
     margin-left: 15px;
 }
 
-.bg-precio {
+.priceBg {
     background-color:#ccc;
     display: inline-block;
 }
 
-.precio {
+.price {
     font-weight: bold;
 }
 
-.tagCaja {
+.tagBox {
     background-color: rgb(61, 129, 255);
     color: white;
     padding: 10px 15px;
@@ -205,7 +236,7 @@ header {
     color: #fff;
 }
 
-.btn-reserva {
+.reservationBtn {
     width: 100%;
     background-color: rgb(93, 189, 157);
     color: #fff;
@@ -214,7 +245,7 @@ header {
     border: 0;
 }
 
-.btn-reserva:hover {
+.reservationBtn:hover {
     cursor: pointer;
 }
 
@@ -223,32 +254,32 @@ header {
 
 @media(max-width:1140px) {
 
-    .titulo-hotel {
+    .hotelTitle {
         text-align: center;
     }
 
-    .descripcion-hotel {
+    .hotelDescription {
         text-align: center;
         padding: 0;
         margin-bottom: 10%;
     }
 
-    .bg-pais {
+    .countryBg {
         display: flex;
         align-items: center;
     }
 
-    .pais {
+    .country {
         font-size: 1rem;
         
     }
 
-    .habitaciones {
+    .beds {
         font-size: 1rem;
         text-align: center;
     }
 
-    .tagCaja {
+    .tagBox {
         padding: 10px;
     }
 
@@ -256,19 +287,19 @@ header {
 
 @media(max-width:900px) {
 
-    .titulo-fecha {
+    .dateTitle {
         width: 100%;
         margin-left: 0;
         padding: 20px;
         margin-bottom: 1.5%;
     }
 
-    .header-titulo {
+    .headerTitle {
         text-align: center;
         font-size: 4rem;
     }
 
-    .info-header {
+    .infoHeader {
         text-align: center;
         font-size: 2rem;
         width: 100%;
@@ -276,11 +307,11 @@ header {
 
     /* FILTROS  */
 
-    .contenido-inputs {
+    .inputsContent {
         flex-direction: column;
     }
 
-    .inputDeLaFecha, .contenedorTagInput {
+    .inputOfDate, .tagInputContent {
         width: 80%;
         margin: 1% auto 2% auto;
     }
@@ -292,40 +323,40 @@ header {
 
     /* TARJETAS */
 
-    .tarjeta {
+    .card {
         width: 47%;
     }
 
 }
 
 @media(max-width:640px) {
-    .tarjeta {
+    .card {
         width: 90%;
     }
 }
 
 @media(max-width:375px) {
 
-    .titulo-fecha {
+    .dateTitle {
         width: 100%;
         margin-left: 0;
         padding: 20px;
         margin-bottom: 1.5%;
     }
 
-    .header-titulo {
+    .headerTitle {
         text-align: center;
         font-size: 3rem;
     }
 
-    .info-header {
+    .infoHeader {
         text-align: center;
         margin: auto;
         font-size: 1.4rem;
         width: 80%;
     }
 
-    .tarjeta {
+    .card {
         width: 98%;
     }
 }

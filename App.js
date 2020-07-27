@@ -1,68 +1,58 @@
 
 class App extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            desde : '',
-            hasta : '',
-            pais : '',
-            dolar : '',
-            camas : '',
-            }
+    state = {
+        pais : '',
+        dolar : '',
+        camas : '',
+        desde : '',
+        hasta : '',
+        // showMe : false,
     }
 
-    componentDidMount() {
-        console.log('SE MONTÓ');
-
-        // let momentJs = moment();
-
-        // console.log(moment().subtract(10, 'days').calendar()) // 07/07/2020
-        // console.log(moment().format('dddd')); // DIA
-        // console.log(moment().format("MMM Do YY")); //MES FECHA AÑO
-        // console.log(moment().calendar()); //HOY A LAS hora PM/AM
-    }
-
-    handleChangeDesde = (e) => {
-        // console.log(typeof e.target.value);
-        this.setState({desde : e.target.value});
-    }
-
-    handleChangePais = (e) => {
-        // console.log(e.target.value);
-        this.setState({pais : e.target.value}, () => {console.log(this.state);})
+    handleChangeCountry = (e) => {
+        // this.setState({pais : e.target.value}, () => {console.log(this.state);})
+        this.setState({pais : e.target.value})
     }
 
     handleChangeDolar = (e) => {
-        // console.log(e.target.value);
-        this.setState({dolar : e.target.value}, () => {console.log(typeof this.state.dolar);})
+        this.setState({dolar : e.target.value})
     }
 
-    handleChangeCamas = (e) => {
-        console.log(e.target.value);
-        // this.setState({camas : e.target.value}, () => {console.log(typeof this.state.dolar);})
+    handleChangeBed = (e) => {
         this.setState({camas : e.target.value})
     }
 
+    handleChangeFrom = (e) => {
+        // console.log(e.target.value);
+        let fecha = e.target.value;
+        this.setState({desde : fecha.valueOf()});
+    }
+
+    handleChangeTo = (e) => {
+        // console.log(e.target.value);
+        let fecha = e.target.value;
+        this.setState({hasta : fecha.valueOf()});
+    }
+
     render() {
-        const {pais, dolar, camas} = this.state
-        return (
-        
-            <React.Fragment>
+        const {pais, dolar, camas, desde, hasta} = this.state
+    return (<div>
 
             <header>
 
-                <Header  />
+                <Header filteredByFrom={desde} filteredByTo={hasta} />
 
-                <Filtros onChangeDesde={this.handleChangeDesde} onChangePais={this.handleChangePais} onChangeDolar={this.handleChangeDolar} onChangeCamas={this.handleChangeCamas} />
+                <Filtros onChangeCountry={this.handleChangeCountry} onChangeDolar={this.handleChangeDolar} onChangeBed={this.handleChangeBed} onChangeFrom={this.handleChangeFrom} onChangeTo={this.handleChangeTo} />
                     
             </header>
 
             <main className="mainView">
 
-            <MainView filtradoPais={pais} filtradoDolar={dolar} filtradoCamas={camas} />
+            <MainView filteredByCountry={pais} filteredByDolar={dolar} filteredByBed={camas} filteredByFrom={desde} filteredByTo={hasta} />
 
             </main>
-            </React.Fragment>
+
+            </div>
 
         )
     }
