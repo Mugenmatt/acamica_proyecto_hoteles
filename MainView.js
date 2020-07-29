@@ -16,50 +16,45 @@ const MainView = (props) => {
             return hotel.rooms <= 10
         } else if(filteredByBed == 'medium') {
             return hotel.rooms > 10 && hotel.rooms <= 20
-        } else {
+        } else if(filteredByBed == 'large'){
             return hotel.rooms > 20
+        } else {
+            return hotel.rooms
         }
     })
 
-    const fromSelection = filteredByFrom == '' ? SizeSelection : SizeSelection.filter(hotel => {
+    let fechaInputFrom = moment(filteredByFrom); // Devuelve lo que viene del input "desde" como objeto moment
+        // Lo que sigue se fija si lo que viene del input es igual a 0 (que esta en el state de App) sino filtra lo que venia de todos los filtros anteriores
+    const fromSelection = fechaInputFrom.valueOf() == 0 ? SizeSelection : SizeSelection.filter( hotel => {
 
-        let hotelDateMilisecondsFrom = moment(hotel.availabilityFrom);
-
-        let requestedDateMilisecondsFrom = moment(props.filteredByFrom)
-
-        if( hotelDateMilisecondsFrom >= requestedDateMilisecondsFrom ) {
-            return hotel.availabilityFrom;
-        }
-
+        return hotel.availabilityFrom >= today.valueOf() //Devuelve todos los hoteles que sean mayor o igual a los milisegundos de este momento.
+        
     })
 
-    const toSelection = filteredByTo == '' ? fromSelection : fromSelection.filter(hotel => {
-
-        let hotelDateMilisecondsTo = moment(hotel.availabilityTo);
-
-        let requestedDateMilisecondsTo = moment(props.filteredByTo)
-
-        if( hotelDateMilisecondsTo >= requestedDateMilisecondsTo ) {
-            return hotel.availabilityTo;
-        }
-
+    let hotels = fromSelection.map(hotel => {
+        return <Hotel key={hotel.slug}
+            city={hotel.city} 
+            country={hotel.country} 
+            description={hotel.description} 
+            name={hotel.name}
+            photo={hotel.photo} 
+            price={hotel.price}
+            rooms={hotel.rooms} 
+        />;
     })
 
         return(<div className="allCards">
-                
-                {toSelection.map(hotel => {
-                    return <Hotel 
-                        city={hotel.city} 
-                        country={hotel.country} 
-                        description={hotel.description} 
-                        name={hotel.name}
-                        photo={hotel.photo} 
-                        price={hotel.price}
-                        rooms={hotel.rooms} 
-                        key={hotel.slug}
-                    />;
-                })}
-                
+                    
+                    {hotels.length > 0 ? hotels : <div className="divMsg">
+                            <h2 className="msgNoHotels">No se encontraron hoteles con esas especificaciones</h2>
+                            <h4 className="peroMsg">¡Pero tenemos un chiste!</h4>
+                            <div className="divJoke">
+                                <blockquote className="jokeMsg">Una mujer va entrando a un Hotel con su amante, y en eso, ve saliendo a su esposo con otra, y ella sin titubear le grita:</blockquote>
+                                <blockquote className="jokeMsg">-¡Te agarré desgraciado! ¡Gracias a Dios que traje un testigo!</blockquote>
+                            </div>
+                        </div>
+                    }
+
             </div>
 
         )

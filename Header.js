@@ -32,6 +32,8 @@ const Header = (props) => {
         }
     })
 
+    // ACA PUEDE HABER UN IF CON UN RETURN <h2>QUE DEUVLEVE ESTO</h2>
+
     return(
         <div className="headerContent">
             <div className="dateTitle">
@@ -54,6 +56,7 @@ const Header = (props) => {
                         de
                         ${moment(filteredByTo).format('YYYY')}`}</span>
                 </h4>
+                {/* <h4 className="infoHeader">Establezca fecha de entrada y salida</h4> */}
             </div>
         </div>
     )

@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
 
 body {
@@ -39,6 +41,7 @@ header {
 
 .infoHeader {
     font-size: 1.5rem;
+    margin-top: 0.6%;
     color: var(--colorCuatro);
 }
 
@@ -71,20 +74,19 @@ header {
 .inputOfDate {
     display: flex;
     align-items: center;
-    background-color: var(--colorCuatro);
     border-radius: 10px;
 }
 
 .tagInputContent {
     display: flex;
     align-items: center;
-    background-color: var(--colorCuatro);
+    background-color: #fff;
     border-radius: 10px;
 }
 
 .tag {
-    color: #ccc;
-    margin: 0 5%;
+    color: var(--colorCinco);
+    margin: 0 0 0 5%;
     font-size: 1rem;
     border-right: 1px solid #ccc;
     padding: 20px 20px 20px 10px;
@@ -97,13 +99,13 @@ header {
 }
 
 .input {
-    text-align: center;
-    margin-right: 6%;
     border: 0;
+    border-radius: 10px;
     padding: 20px 20px;
     font-size: 1rem;
     width: 100%;
-    color: var(--colorUno);
+    color: var(--colorDos);
+    margin-left: 10%;
 }
 
 .input:hover {
@@ -113,9 +115,8 @@ header {
 .inputSelect {
     background: transparent;
     font-size: 1rem;
-    padding: 5px;
-    text-align: center;
     width: 250px;
+    -webkit-appearance: none;
 }
 
 
@@ -131,6 +132,31 @@ header {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.divMsg {
+    border: 1px solid var(--colorUno);
+    padding: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.msgNoHotels {
+    color: var(--colorUno);
+    font-weight: 100;
+}
+
+.peroMsg {
+    margin-top: 1%;
+    font-size: 1.1rem;
+}
+
+.jokeMsg {
+    margin-top: 1.4%;
+    font-style: italic;
+    font-size: 1.2rem;
 }
 
 /* ---------------------------------------------- CARD ---------------------------------------------- */
@@ -200,6 +226,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .beds {
@@ -207,6 +234,7 @@ header {
     margin-right: 15px;
     margin-left: 15px;
     color: var(--colorDos);
+    font-size: 1.5rem;
 }
 
 .priceBg {
@@ -353,6 +381,10 @@ header {
         margin: auto;
         font-size: 1.4rem;
         width: 80%;
+    }
+
+    .allCards {
+        margin-top: 5%;
     }
 
     .card {

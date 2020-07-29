@@ -4,10 +4,13 @@ class App extends React.Component {
         pais : '',
         dolar : '',
         camas : '',
-        desde : '',
-        hasta : '',
+        headerDesde : today.valueOf(),
+        headerHasta : today.valueOf() + 86400000,
+        mainViewDesde : 0,
+        mainViewHasta : 0,
         // showMe : false,
     }
+
 
     handleChangeCountry = (e) => {
         // this.setState({pais : e.target.value}, () => {console.log(this.state);})
@@ -23,24 +26,25 @@ class App extends React.Component {
     }
 
     handleChangeFrom = (e) => {
-        // console.log(e.target.value);
-        let fecha = e.target.value;
-        this.setState({desde : fecha.valueOf()});
+        let fecha = e.target.value
+            // console.log(fecha);
+            this.setState({
+            headerDesde : fecha.valueOf(),
+            mainViewDesde : fecha.valueOf()});
     }
 
     handleChangeTo = (e) => {
-        // console.log(e.target.value);
         let fecha = e.target.value;
-        this.setState({hasta : fecha.valueOf()});
+        this.setState({headerHasta : fecha.valueOf()});
     }
 
     render() {
-        const {pais, dolar, camas, desde, hasta} = this.state
+        const {pais, dolar, camas, headerDesde, headerHasta, mainViewDesde, mainViewHasta} = this.state
     return (<div>
 
             <header>
 
-                <Header filteredByFrom={desde} filteredByTo={hasta} />
+                <Header filteredByFrom={headerDesde} filteredByTo={headerHasta} />
 
                 <Filtros onChangeCountry={this.handleChangeCountry} onChangeDolar={this.handleChangeDolar} onChangeBed={this.handleChangeBed} onChangeFrom={this.handleChangeFrom} onChangeTo={this.handleChangeTo} />
                     
@@ -48,7 +52,7 @@ class App extends React.Component {
 
             <main className="mainView">
 
-            <MainView filteredByCountry={pais} filteredByDolar={dolar} filteredByBed={camas} filteredByFrom={desde} filteredByTo={hasta} />
+            <MainView filteredByCountry={pais} filteredByDolar={dolar} filteredByBed={camas} filteredByFrom={mainViewDesde} filteredByTo={mainViewHasta} />
 
             </main>
 
