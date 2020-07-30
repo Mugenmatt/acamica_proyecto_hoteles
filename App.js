@@ -25,15 +25,16 @@ class App extends React.Component {
         this.setState({camas : e.target.value})
     }
 
-    handleChangeFrom = (e) => {
+    handleHeaderChangeFrom = (e) => {
         let fecha = e.target.value
+        // console.log(e.target.name);
             // console.log(fecha);
             this.setState({
             headerDesde : fecha.valueOf(),
             mainViewDesde : fecha.valueOf()});
     }
 
-    handleChangeTo = (e) => {
+    handleHeaderChangeTo = (e) => {
         let fecha = e.target.value;
         this.setState({headerHasta : fecha.valueOf()});
     }
@@ -46,7 +47,7 @@ class App extends React.Component {
 
                 <Header filteredByFrom={headerDesde} filteredByTo={headerHasta} />
 
-                <Filtros onChangeCountry={this.handleChangeCountry} onChangeDolar={this.handleChangeDolar} onChangeBed={this.handleChangeBed} onChangeFrom={this.handleChangeFrom} onChangeTo={this.handleChangeTo} />
+                <Filtros onChangeCountry={this.handleChangeCountry} onChangeDolar={this.handleChangeDolar} onChangeBed={this.handleChangeBed} onChangeFrom={this.handleHeaderChangeFrom} onChangeTo={this.handleHeaderChangeTo} />
                     
             </header>
 

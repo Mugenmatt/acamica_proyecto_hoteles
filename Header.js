@@ -9,13 +9,13 @@ const Header = (props) => {
     const months = ['Enero','Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 
     let chosenDayFrom = days.find(dia => {
-        if(days.indexOf(dia) == moment(filteredByFrom).format('d')){
+        if(days.indexOf((dia)) == moment(filteredByFrom).format('d')){
             return dia
         }
     })
 
     let chosenDayTo = days.find(dia => {
-        if(days.indexOf(dia) == moment(filteredByTo).format('d')){
+        if(days.indexOf((dia)) == moment(filteredByTo).format('d')){
             return dia
         }
     })

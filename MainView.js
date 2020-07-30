@@ -23,12 +23,24 @@ const MainView = (props) => {
         }
     })
 
-    let fechaInputFrom = moment(filteredByFrom); // Devuelve lo que viene del input "desde" como objeto moment
-        // Lo que sigue se fija si lo que viene del input es igual a 0 (que esta en el state de App) sino filtra lo que venia de todos los filtros anteriores
+    // ================ ACA ESTA EL PROBLEMA :( ====================
+    let fechaInputFrom = moment(filteredByFrom); 
     const fromSelection = fechaInputFrom.valueOf() == 0 ? SizeSelection : SizeSelection.filter( hotel => {
 
-        return hotel.availabilityFrom >= today.valueOf() //Devuelve todos los hoteles que sean mayor o igual a los milisegundos de este momento.
-        
+        let fecha1 = new Date(hotel.availabilityFrom); // Objeto con todo de la fecha del hotel recorrido
+        let fecha2 = new Date(filteredByFrom); // Objeto con todo de la fecha de lo que se puso en el INPUT
+        fecha1.setHours(0,0,0,0); // HH, MM, ss y ms a 0
+        fecha2.setHours(0,0,0,0); 
+
+        if(fecha1.getTime() >= fecha2.getTime()) {
+            // console.log(fecha1.getTime());
+            // console.log(fecha2.getTime());
+            // console.log(fecha1.getTime() >= fecha2.getTime());
+            return hotel.availabilityFrom
+        } else if(fecha2 == ' ') {
+            return SizeSelection
+        }
+        return hotel[0]
     })
 
     let hotels = fromSelection.map(hotel => {
