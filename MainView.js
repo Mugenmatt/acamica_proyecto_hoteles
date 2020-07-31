@@ -2,14 +2,17 @@ const MainView = (props) => {
 
     const {filteredByCountry, filteredByDolar, filteredByBed, filteredByFrom, filteredByTo} = props
 
+    // Filtro de pais
     const countrySelection = filteredByCountry == '' ? hotelsData : hotelsData.filter(hotel => {
     return hotel.country == props.filteredByCountry
     })
 
+    // Filtro de precio
     const DolarSelection = filteredByDolar == '' ? countrySelection : countrySelection.filter(hotel => {
         return hotel.price == Number(props.filteredByDolar)
         })
 
+    // Filtro de tamaño
     const SizeSelection = filteredByBed == '' ? DolarSelection : DolarSelection.filter(hotel => {
 
         if(filteredByBed == 'small') {
@@ -23,27 +26,31 @@ const MainView = (props) => {
         }
     })
 
-    // ================ ACA ESTA EL PROBLEMA :( ====================
-    let fechaInputFrom = moment(filteredByFrom); 
-    const fromSelection = fechaInputFrom.valueOf() == 0 ? SizeSelection : SizeSelection.filter( hotel => {
+    //Filtro del input de fecha de salida
+    let fechaInputFrom = moment(filteredByFrom).startOf('day').add(1, 'days');
+    const fromSelection = filteredByFrom == '' ? SizeSelection : SizeSelection.filter( hotel => {
 
-        let fecha1 = new Date(hotel.availabilityFrom); // Objeto con todo de la fecha del hotel recorrido
-        let fecha2 = new Date(filteredByFrom); // Objeto con todo de la fecha de lo que se puso en el INPUT
-        fecha1.setHours(0,0,0,0); // HH, MM, ss y ms a 0
-        fecha2.setHours(0,0,0,0); 
-
-        if(fecha1.getTime() >= fecha2.getTime()) {
-            // console.log(fecha1.getTime());
-            // console.log(fecha2.getTime());
-            // console.log(fecha1.getTime() >= fecha2.getTime());
+        let fechaHotel = moment(hotel.availabilityFrom).valueOf(); 
+        let fechaInput = moment(fechaInputFrom).valueOf();
+        let diferenciaHoraria = moment(fechaHotel).diff(moment(fechaInput), 'days')
+        if(diferenciaHoraria <= 0 ) {
             return hotel.availabilityFrom
-        } else if(fecha2 == ' ') {
-            return SizeSelection
         }
-        return hotel[0]
     })
 
-    let hotels = fromSelection.map(hotel => {
+    //Filtro del input de fecha de salida
+    let fechaInputTo = moment(filteredByTo).startOf('day').add(1, 'days');
+    const toSelection = filteredByTo == '' ? fromSelection : fromSelection.filter( hotel => {
+        let fechaHotel = moment(hotel.availabilityTo).valueOf(); 
+        let fechaInput = moment(fechaInputTo).valueOf();;
+        let diferenciaHoraria = moment(fechaHotel).diff(moment(fechaInput), 'days')
+        if(diferenciaHoraria >= 0 && moment(filteredByFrom) < moment(filteredByTo)) {
+            return hotel.availabilityTo
+        }
+    })
+
+
+    let hotels = toSelection.map(hotel => {
         return <Hotel key={hotel.slug}
             city={hotel.city} 
             country={hotel.country} 

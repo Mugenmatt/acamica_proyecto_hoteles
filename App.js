@@ -4,11 +4,8 @@ class App extends React.Component {
         pais : '',
         dolar : '',
         camas : '',
-        headerDesde : today.valueOf(),
-        headerHasta : today.valueOf() + 86400000,
-        mainViewDesde : 0,
-        mainViewHasta : 0,
-        // showMe : false,
+        mainViewDesde : '',
+        mainViewHasta : '',
     }
 
 
@@ -30,22 +27,24 @@ class App extends React.Component {
         // console.log(e.target.name);
             // console.log(fecha);
             this.setState({
-            headerDesde : fecha.valueOf(),
-            mainViewDesde : fecha.valueOf()});
+                headerDesde : fecha.valueOf(),
+                mainViewDesde : fecha.valueOf()});
     }
 
     handleHeaderChangeTo = (e) => {
         let fecha = e.target.value;
-        this.setState({headerHasta : fecha.valueOf()});
+        this.setState({
+            headerHasta : fecha.valueOf(),
+            mainViewHasta : fecha.valueOf()});
     }
 
     render() {
-        const {pais, dolar, camas, headerDesde, headerHasta, mainViewDesde, mainViewHasta} = this.state
+        const {pais, dolar, camas, mainViewDesde, mainViewHasta} = this.state
     return (<div>
 
             <header>
 
-                <Header filteredByFrom={headerDesde} filteredByTo={headerHasta} />
+                <Header filteredByFrom={mainViewDesde} filteredByTo={mainViewHasta} />
 
                 <Filtros onChangeCountry={this.handleChangeCountry} onChangeDolar={this.handleChangeDolar} onChangeBed={this.handleChangeBed} onChangeFrom={this.handleHeaderChangeFrom} onChangeTo={this.handleHeaderChangeTo} />
                     

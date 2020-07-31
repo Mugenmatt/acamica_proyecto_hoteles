@@ -51,11 +51,14 @@ header {
 }
 
 .notBoldDate {
-
     font-weight: 400;
-
 }
 
+
+.noHotels {
+    font-size: 2rem;
+    color: #fff;
+}
 
 /* ---------------------------------------------- FILTROS ---------------------------------------------- */
 

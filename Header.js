@@ -32,32 +32,42 @@ const Header = (props) => {
         }
     })
 
-    // ACA PUEDE HABER UN IF CON UN RETURN <h2>QUE DEUVLEVE ESTO</h2>
 
-    return(
-        <div className="headerContent">
-            <div className="dateTitle">
-                <h1 className="headerTitle">Hoteles</h1>
-                <h4 className="infoHeader">
-                    <span className="notBoldDate">Desde el</span>
-                        {<span className="boldDate">{`${chosenDayFrom},
-                        ${moment(filteredByFrom).format('D')}
-                        de
-                        ${chosenMonthFrom}
-                        de
-                        ${moment(filteredByFrom).format('YYYY')}`}</span>}
-                        
+    if(filteredByFrom == '' && filteredByFrom == ''){
+        return <div className="headerContent">
+                    <div className="dateTitle">
+                        <h1 className="headerTitle">Hoteles</h1>
+                        <h4 className="noHotels">Establezca fecha de entrada y salida</h4>
+                    </div>
+                </div>
+            } else {
+        return(
+            <div className="headerContent">
+                <div className="dateTitle">
+                    <h1 className="headerTitle">Hoteles</h1>
+                    <h4 className="infoHeader">
+                    
+                        <span className="notBoldDate">Desde el</span>
+                            {<span className="boldDate">{`${chosenDayFrom},
+                            ${moment(filteredByFrom).format('D')}
+                            de
+                            ${chosenMonthFrom}
+                            de
+                            ${moment(filteredByFrom).format('YYYY')}`}</span>}
 
-                    <span className="notBoldDate">hasta el</span>
-                        <span className="boldDate">{`${chosenDayTo},
-                        ${moment(filteredByTo).format('D')}
-                        de
-                        ${chosenMonthTo}
-                        de
-                        ${moment(filteredByTo).format('YYYY')}`}</span>
-                </h4>
-                {/* <h4 className="infoHeader">Establezca fecha de entrada y salida</h4> */}
+                    {filteredByTo !== '' ?
+                        <React.Fragment>
+                        <span className="notBoldDate">hasta el</span>
+                            <span className="boldDate">{`${chosenDayTo},
+                            ${moment(filteredByTo).format('D')}
+                            de
+                            ${chosenMonthTo}
+                            de
+                            ${moment(filteredByTo).format('YYYY')}`}</span>
+                        </React.Fragment> : <span className="notBoldDate">establezca fecha de salida</span>}
+                    </h4>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
